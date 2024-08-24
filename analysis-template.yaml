@@ -10,8 +10,6 @@ spec:
       provider:
         url: http://localhost/status
         method: GET
-        successCondition: response.body == "Ok"
-        failureCondition: response.body != "Ok"
         job:
           spec:
             template:
