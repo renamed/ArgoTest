@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argo-test
+  namespace: teste
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: argo-test
+  template:
+    metadata:
+      labels:
+        app: argo-test
+    spec:
+      containers:
+      - name: argo-test
+        image: renamedrj/argotest:latest
+        ports:
+        - containerPort: 80
