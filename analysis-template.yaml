@@ -9,13 +9,14 @@ spec:
       failureCondition: result != 0
       provider:
         job:
-          template:
-            spec:
-              containers:
-                - name: status-check
-                  image: curlimages/curl:latest
-                  command: [ "sh", "-c" ]
-                  args:
-                    - |
-                      exit 0;
-              restartPolicy: Never
+          spec:
+            template:
+              spec:
+                containers:
+                  - name: status-check
+                    image: curlimages/curl:latest
+                    command: [ "sh", "-c" ]
+                    args:
+                      - |
+                        exit 0;
+                restartPolicy: Never
