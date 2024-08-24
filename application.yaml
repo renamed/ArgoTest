@@ -4,6 +4,7 @@ metadata:
   name: argo-test-app
   namespace: teste
 spec:
+  project: default  # Especifique o projeto aqui, "default" é o padrão
   destination:
     namespace: default
     server: https://kubernetes.default.svc
