@@ -12,14 +12,14 @@ spec:
         method: GET
         successCondition: response.body == "Ok"
         failureCondition: response.body != "Ok"
-        # job:
-        #   spec:
-        #     template:
-        #       spec:
-        #         containers:
-        #           - name: status-check
-        #             command: [ "sh", "-c" ]
-        #             args:
-        #               - |
-        #                 exit 0;
-        #         restartPolicy: Never
+        job:
+          spec:
+            template:
+              spec:
+                containers:
+                  - name: status-check
+                    command: [ "sh", "-c" ]
+                    args:
+                      - |
+                        exit 0;
+                restartPolicy: Never
