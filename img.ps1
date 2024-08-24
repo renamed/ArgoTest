@@ -1,4 +1,4 @@
-$version=5
+$version=6
 docker login
 docker build -t argotest:$version .
 docker tag argotest:$version renamedrj/argotest:$version
