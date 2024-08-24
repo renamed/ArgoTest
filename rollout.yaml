@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name: argo-test
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: argo-test
@@ -25,5 +25,5 @@ spec:
       analysis:
         templates:
           - name: health-check-analysis
-        interval: 30s
-        retries: 3
+        interval: 0
+        retries: 0
