@@ -12,7 +12,7 @@ public class StatusController : ControllerBase
         return BadRequest();
     }
 
-    [HttpGet]
+    [HttpGet("opa")]
     public IActionResult Opa()
     {
         return Ok("Opa");
