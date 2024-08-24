@@ -17,4 +17,4 @@ spec:
       - name: argo-test
         image: renamedrj/argotest:latest
         ports:
-          - containerPort: 8080
+        - containerPort: 8080
