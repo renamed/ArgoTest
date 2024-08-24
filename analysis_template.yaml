@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: health-check-analysis
+spec:
+  metrics:
+    - name: health-check-analysis
+      successCondition: result == 0
+      failureCondition: result != 0
+      provider: 
+        job:
+          template:
+            spec:
+              containers:
+                - name: health-check-analysis
+                  image: curlimages/curl:latest
+                  command: [ "sh", "-c" ]
+                  args:
+                    - |
+                      curl -s http://localhost:31826 | grep -q "Ok";
+                      if [ $? -eq 0 ]; then
+                        exit 0;
+                      else
+                        exit 1;
+                      fi
+              restartPolicy: Never
