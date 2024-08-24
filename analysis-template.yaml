@@ -15,7 +15,7 @@ spec:
             spec:
               containers:
               - name: health-check-analysis
-                image: alpine:3.8
+                image: curlimages/curl:8.9.1
                 command: [sh, -c]
                 args:
                     - |
