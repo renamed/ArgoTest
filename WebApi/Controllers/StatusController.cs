@@ -9,7 +9,7 @@ public class StatusController : ControllerBase
     [HttpGet]
     public IActionResult HealthCheck()
     {
-        return Ok();
+        return Ok("16");
     }
 
     // [HttpGet("opa")]

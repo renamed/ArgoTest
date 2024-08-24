@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: argo-test
-        image: renamedrj/argotest:15
+        image: renamedrj/argotest:16
         ports:
         - containerPort: 8080
   strategy:
