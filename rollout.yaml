@@ -22,6 +22,6 @@ spec:
       activeService: argo-test-service
       previewService: argo-test-service-preview
       autoPromotionEnabled: false
-      analysis:
-        templates:
-          - name: health-check-analysis
+      # analysis:
+      #   templates:
+      #     - name: health-check-analysis
