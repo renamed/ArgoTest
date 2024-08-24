@@ -9,12 +9,12 @@ public class StatusController : ControllerBase
     [HttpGet]
     public IActionResult HealthCheck()
     {
-        return Ok("16");
+        return BadRequest("17");
     }
 
-    // [HttpGet("opa")]
-    // public IActionResult Opa()
-    // {
-    //     return Ok("Opa");
-    // }
+    [HttpGet("opa")]
+    public IActionResult Opa()
+    {
+        return Ok("Opa");
+    }
 }
