@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: argo-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: argo-test
+  template:
+    metadata:
+      labels:
+        app: argo-test
+    spec:
+      containers:
+      - name: argo-test
+        image: renamedrj/argotest:3
+        ports:
+        - containerPort: 8080
+  strategy:
+    blueGreen:
+      activeService: argo-test-service
+      previewService: argo-test-service-preview
+      autoPromotionEnabled: true
