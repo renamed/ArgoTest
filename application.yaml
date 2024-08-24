@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-test-app
+  namespace: teste
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: 'https://github.com/renamed/ArgoTest.git'
+    targetRevision: main
+    path: './'
+  syncPolicy:
+    automated:
+      prune: true       # Remove resources no longer defined in Git
+      selfHeal: true    # If a resource is modified, Argo CD will revert it
