@@ -19,9 +19,14 @@ spec:
                 command: [sh, -c]
                 args:
                     - |
-                      if [ $(curl -s -o /dev/null -w "%{http_code}" http://192.168.65.3:31826/status) -eq 200 ]; 
-                      then exit 0; 
-                      else exit 1; 
-                      fi
+                        HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://192.168.65.3:31826/status)
+                        echo "HTTP Status Code: $HTTP_STATUS"
+                        if [ $HTTP_STATUS -eq 200 ]; then
+                          echo "Health check passed."
+                          exit 0
+                        else
+                          echo "Health check failed with status code $HTTP_STATUS."
+                          exit 1
+                        fi
               restartPolicy: Never
           backoffLimit: 0
