@@ -1,23 +1,23 @@
-apiVersion: argoproj.io/v1alpha1
-kind: AnalysisTemplate
-metadata:
-  name: health-check-analysis
-spec:
-  metrics:
-    - name: status-check
-      successCondition: result == 0
-      failureCondition: result != 0
-      provider:
-        url: http://localhost/status
-        method: GET
-        job:
-          spec:
-            template:
-              spec:
-                containers:
-                  - name: status-check
-                    command: [ "sh", "-c" ]
-                    args:
-                      - |
-                        exit 0;
-                restartPolicy: Never
+# apiVersion: argoproj.io/v1alpha1
+# kind: AnalysisTemplate
+# metadata:
+#   name: health-check-analysis
+# spec:
+#   metrics:
+#     - name: status-check
+#       successCondition: result == 0
+#       failureCondition: result != 0
+#       provider:
+#         url: http://localhost/status
+#         method: GET
+#         job:
+#           spec:
+#             template:
+#               spec:
+#                 containers:
+#                   - name: status-check
+#                     command: [ "sh", "-c" ]
+#                     args:
+#                       - |
+#                         exit 0;
+#                 restartPolicy: Never
