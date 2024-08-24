@@ -4,15 +4,15 @@ metadata:
   name: health-check-analysis
 spec:
   metrics:
-    - name: health-check-analysis
+    - name: status-check
       successCondition: result == 0
       failureCondition: result != 0
-      provider: 
+      provider:
         job:
           template:
             spec:
               containers:
-                - name: health-check-analysis
+                - name: status-check
                   image: curlimages/curl:latest
                   command: [ "sh", "-c" ]
                   args:
@@ -24,3 +24,8 @@ spec:
                         exit 1;
                       fi
               restartPolicy: Never
+              # Add this field to ensure the job can be correctly applied
+              activeDeadlineSeconds: 60
+  analysis:
+    interval: 1m
+    retries: 3
