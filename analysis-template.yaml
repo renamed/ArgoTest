@@ -38,7 +38,7 @@ metadata:
   name: health-check-analysis
 spec:
   metrics:
-  - name: health-check-analysis
+  - name: health-check-analysis 
     count: 1
     interval: 5s
     failureLimit: 1
@@ -47,5 +47,4 @@ spec:
         url: http://192.168.65.3:31826/api/status
         timeoutSeconds: 60
         method: GET
-        jsonPath: '{.status}'
         successCondition: "eq(200)"
