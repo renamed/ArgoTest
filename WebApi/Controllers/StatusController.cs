@@ -7,9 +7,13 @@ namespace WebApi.Controllers;
 public class StatusController : ControllerBase
 {
     [HttpGet]
-    public IActionResult HealthCheck()
+    public async Task<IActionResult> HealthCheck()
     {
-        return Ok("20");
+        var init = DateTime.UtcNow;
+        await Task.Delay(TimeSpan.FromSeconds(30));
+        var fim = DateTime.UtcNow;
+        
+        return Ok($"21 - {init:HH:mm:ss} - {fim:HH:mm:ss}");
     }
 
     [HttpGet("opa")]
