@@ -5,7 +5,7 @@ metadata:
   namespace: teste
 spec:
   selector:
-    app: argo-test-preview
+    app: argo-test
   ports:
     - protocol: TCP
       port: 80
