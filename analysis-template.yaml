@@ -42,9 +42,9 @@ spec:
     count: 1
     interval: 5s
     failureLimit: 1
+    successCondition: $.statusCode  == 200
     provider:
       web:
         url: http://192.168.65.3:31826/api/status/ok
         timeoutSeconds: 60
-        method: GET
-        successCondition: $.statusCode  == 200
+        method: GET        
