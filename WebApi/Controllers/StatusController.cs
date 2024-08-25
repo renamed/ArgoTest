@@ -6,7 +6,7 @@ namespace WebApi.Controllers;
 [ApiController]
 public class StatusController : ControllerBase
 {
-    private const int version = 23;
+    private const int version = 24;
 
     [HttpGet]
     public async Task<IActionResult> HealthCheck()

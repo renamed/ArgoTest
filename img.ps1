@@ -1,4 +1,4 @@
-$version=23
+$version=24
 Write-Host "version: $version"
 docker login
 docker build -t argotest:$version .
