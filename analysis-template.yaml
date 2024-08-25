@@ -19,7 +19,7 @@ spec:
                 command: [sh, -c]
                 args:
                     - |
-                        HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://192.168.65.3:31826/api/status)
+                        HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://argo-test-service-preview/api/status)
                         echo "HTTP Status Code: $HTTP_STATUS"
                         if [ $HTTP_STATUS -eq 200 ]; then
                           echo "Health check passed."
