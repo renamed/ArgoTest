@@ -11,6 +11,7 @@ spec:
     provider:
       job:
         spec:
+          activeDeadlineSeconds: 60
           template:
             spec:
               containers:
@@ -19,7 +20,7 @@ spec:
                 command: [sh, -c]
                 args:
                     - |
-                        HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://192.168.65.3:31826/api/status)
+                        HTTP_STATUS=$(curl -s --connect-timeout 60 --max-time 60 -o /dev/null -w "%{http_code}" http://192.168.65.3:31826/api/status)
                         echo "HTTP Status Code: $HTTP_STATUS"
                         if [ $HTTP_STATUS -eq 200 ]; then
                           echo "Health check passed."
@@ -29,4 +30,4 @@ spec:
                           exit 1
                         fi
               restartPolicy: Never
-          backoffLimit: 5
+          backoffLimit: 0
