@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: argo-test
-        image: renamedrj/argotest:21
+        image: renamedrj/argotest:22
         ports:
         - containerPort: 8080
   strategy:
@@ -22,6 +22,7 @@ spec:
       activeService: argo-test-service
       previewService: argo-test-service-preview
       autoPromotionEnabled: true
+      scaleDownDelaySeconds: 30
       prePromotionAnalysis:
         templates:
           - templateName: health-check-analysis
