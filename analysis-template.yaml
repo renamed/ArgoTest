@@ -44,7 +44,7 @@ spec:
     failureLimit: 1
     provider:
       web:
-        url: http://192.168.65.3:31826/api/status
+        url: http://192.168.65.3:31826/api/status/ok
         timeoutSeconds: 60
         method: GET
-        successCondition: "eq(200)"
+        successCondition: $.statusCode  == 200

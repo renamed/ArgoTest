@@ -6,7 +6,7 @@ namespace WebApi.Controllers;
 [ApiController]
 public class StatusController : ControllerBase
 {
-    private const int version = 24;
+    private const int version = 25;
 
     [HttpGet]
     public async Task<IActionResult> HealthCheck()
@@ -16,6 +16,14 @@ public class StatusController : ControllerBase
         var fim = DateTime.UtcNow;
 
         return Ok($"{version} - {init:HH:mm:ss} - {fim:HH:mm:ss}");
+    }
+
+    [HttpGet("ok")]
+    public async Task<IActionResult> HealthCheck2()
+    {        
+        await Task.Delay(TimeSpan.FromSeconds(30));    
+
+        return Ok("Ok");
     }
 
     [HttpGet("opa")]
